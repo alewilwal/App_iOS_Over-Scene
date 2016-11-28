@@ -14,6 +14,9 @@
 		88120A961DEC39EF00DCB9C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88120A941DEC39EF00DCB9C4 /* LaunchScreen.storyboard */; };
 		88120AA11DEC39F000DCB9C4 /* App_iOS_Over_SceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88120AA01DEC39F000DCB9C4 /* App_iOS_Over_SceneTests.swift */; };
 		88120AAC1DEC39F000DCB9C4 /* App_iOS_Over_SceneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88120AAB1DEC39F000DCB9C4 /* App_iOS_Over_SceneUITests.swift */; };
+		88120ABA1DEC3F4400DCB9C4 /* AgendaSonoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88120AB91DEC3F4400DCB9C4 /* AgendaSonoreTableViewController.swift */; };
+		88120ABD1DEC42EA00DCB9C4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88120ABC1DEC42EA00DCB9C4 /* Event.swift */; };
+		88120ABF1DEC494800DCB9C4 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88120ABE1DEC494800DCB9C4 /* EventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		88120AA71DEC39F000DCB9C4 /* App_iOS_Over-SceneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "App_iOS_Over-SceneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88120AAB1DEC39F000DCB9C4 /* App_iOS_Over_SceneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App_iOS_Over_SceneUITests.swift; sourceTree = "<group>"; };
 		88120AAD1DEC39F000DCB9C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88120AB91DEC3F4400DCB9C4 /* AgendaSonoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaSonoreTableViewController.swift; sourceTree = "<group>"; };
+		88120ABC1DEC42EA00DCB9C4 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Model/Event.swift; sourceTree = "<group>"; };
+		88120ABE1DEC494800DCB9C4 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +103,15 @@
 		88120A8A1DEC39EF00DCB9C4 /* App_iOS_Over-Scene */ = {
 			isa = PBXGroup;
 			children = (
+				88120ABB1DEC42C900DCB9C4 /* Model */,
 				88120A8B1DEC39EF00DCB9C4 /* AppDelegate.swift */,
 				88120A8D1DEC39EF00DCB9C4 /* ViewController.swift */,
+				88120ABE1DEC494800DCB9C4 /* EventViewController.swift */,
 				88120A8F1DEC39EF00DCB9C4 /* Main.storyboard */,
 				88120A921DEC39EF00DCB9C4 /* Assets.xcassets */,
 				88120A941DEC39EF00DCB9C4 /* LaunchScreen.storyboard */,
 				88120A971DEC39EF00DCB9C4 /* Info.plist */,
+				88120AB91DEC3F4400DCB9C4 /* AgendaSonoreTableViewController.swift */,
 			);
 			path = "App_iOS_Over-Scene";
 			sourceTree = "<group>";
@@ -123,6 +132,14 @@
 				88120AAD1DEC39F000DCB9C4 /* Info.plist */,
 			);
 			path = "App_iOS_Over-SceneUITests";
+			sourceTree = "<group>";
+		};
+		88120ABB1DEC42C900DCB9C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88120ABC1DEC42EA00DCB9C4 /* Event.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88120ABF1DEC494800DCB9C4 /* EventViewController.swift in Sources */,
+				88120ABD1DEC42EA00DCB9C4 /* Event.swift in Sources */,
 				88120A8E1DEC39EF00DCB9C4 /* ViewController.swift in Sources */,
 				88120A8C1DEC39EF00DCB9C4 /* AppDelegate.swift in Sources */,
+				88120ABA1DEC3F4400DCB9C4 /* AgendaSonoreTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

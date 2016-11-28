@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eWy-hj-z5U">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Over-Scene-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="App_iOS_Over_Scene" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +17,129 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGZ-SM-C7b">
+                                <state key="normal" title="Agenda Sonore"/>
+                                <connections>
+                                    <segue destination="kG9-oS-SbK" kind="show" id="2Cw-Us-TxY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svT-4S-n2M">
+                                <state key="normal" title="Agenda Culturel"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qGZ-SM-C7b" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="JeC-mh-EM7"/>
+                            <constraint firstItem="svT-4S-n2M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XcM-Es-oaA"/>
+                            <constraint firstItem="svT-4S-n2M" firstAttribute="top" secondItem="qGZ-SM-C7b" secondAttribute="bottom" constant="38" id="fVk-Tl-vSL"/>
+                            <constraint firstItem="qGZ-SM-C7b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p7K-4B-af9"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Over-Scene" id="sOF-sw-KlA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
+        </scene>
+        <!--Evénement-->
+        <scene sceneID="o9C-Xn-C68">
+            <objects>
+                <viewController id="0cQ-a2-xZM" customClass="EventViewController" customModule="App_iOS_Over_Scene" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JG4-pN-icd"/>
+                        <viewControllerLayoutGuide type="bottom" id="iJ9-TT-cUC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4UR-Um-LcI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovP-Nc-ajt">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ovP-Nc-ajt" firstAttribute="top" secondItem="JG4-pN-icd" secondAttribute="bottom" constant="97" id="chH-wr-I2w"/>
+                            <constraint firstItem="ovP-Nc-ajt" firstAttribute="centerX" secondItem="4UR-Um-LcI" secondAttribute="centerX" id="rkg-ON-GRl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Evénement" id="eO3-E2-x9d"/>
+                    <connections>
+                        <outlet property="ui_eventLabel" destination="ovP-Nc-ajt" id="spH-j6-hU5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MIo-hX-zOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2751" y="-235"/>
+        </scene>
+        <!--Agenda Sonore-->
+        <scene sceneID="3je-6o-3T5">
+            <objects>
+                <tableViewController id="kG9-oS-SbK" customClass="AgendaSonoreTableViewController" customModule="App_iOS_Over_Scene" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sA0-Ak-RUA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell-event" textLabel="u1b-3F-5Pq" detailTextLabel="xVB-xr-4Yk" style="IBUITableViewCellStyleValue1" id="Npm-Py-ZiN">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Npm-Py-ZiN" id="eB2-Hh-C6x">
+                                    <frame key="frameInset" width="342" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u1b-3F-5Pq">
+                                            <frame key="frameInset" minX="15" minY="11" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xVB-xr-4Yk">
+                                            <frame key="frameInset" minX="296" minY="11" width="44" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="0cQ-a2-xZM" kind="show" identifier="detail-event" id="IU2-9Y-tTV"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kG9-oS-SbK" id="pbg-zq-M65"/>
+                            <outlet property="delegate" destination="kG9-oS-SbK" id="f8J-Ie-agO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Agenda Sonore" id="BZQ-Tf-T1B"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVq-4k-HFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2010" y="-235"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fVL-2o-fLh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eWy-hj-z5U" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TEE-Fd-juA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="o64-MO-ayC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edg-cR-AWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="274" y="124"/>
         </scene>
     </scenes>
 </document>
