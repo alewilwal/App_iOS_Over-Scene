@@ -7,22 +7,32 @@
 //
 
 import UIKit
+import Alamofire
+import Foundation
+import ObjectMapper
+import AlamofireObjectMapper
 
 class AgendaSonoreTableViewController: UITableViewController {
     
     let userDefaultsManager:UserDefaults = UserDefaults.standard
-    var _eventsArray:[Event] = []
+    var eventsArray:[Event]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        _eventsArray.append(Event(name: "Maths", note: 15))
-        _eventsArray.append(Event(name: "Français", note: 10))
-        _eventsArray.append(Event(name: "Histoire", note: 12))
-        _eventsArray.append(Event(name: "Anglais", note: 14))
-        _eventsArray.append(Event(name: "Espagnole", note: 16))
-        _eventsArray.append(Event(name: "Informatique", note: 18))
         
+        let URL = "http://www.over-scene.com/wp-json/posts?type=tribe_events&filter[tribe_events_cat]=Musique"
+        
+        Alamofire.request(URL).responseArray { (response: DataResponse<[Event]>) in
+            self.eventsArray = response.result.value
+            /*
+            if let eventsArray = self.eventsArray {
+                for event in eventsArray {
+                    print(event.title!)
+                }
+            }
+            */
+            self.tableView.reloadData()
+        }
         
     }
 
@@ -30,26 +40,31 @@ class AgendaSonoreTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return _eventsArray.count
+        if let event = eventsArray {
+            return event.count
+        }
+        else {
+            return 0
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cell-event")
-        let event:Event = _eventsArray[indexPath.row]
+        let event:Event = eventsArray[indexPath.row]
         
         if let label = cell.textLabel {
-            label.text = event.name
+            label.text = event.title
         }
         
         if let detailLabel = cell.detailTextLabel {
-            detailLabel.text = "\(event.note)"
+            detailLabel.text = "\(event.content!)"
         }
         
         return cell
@@ -59,7 +74,7 @@ class AgendaSonoreTableViewController: UITableViewController {
         if segue.identifier == "detail-event" {
             if let cell = sender as? UITableViewCell {
                 if let indexPath = self.tableView.indexPath(for: cell) {
-                    let selectedEvent = _eventsArray[indexPath.row]
+                    let selectedEvent = eventsArray[indexPath.row]
                     
                     let EventViewController:EventViewController = segue.destination as! EventViewController
                     EventViewController._event = selectedEvent

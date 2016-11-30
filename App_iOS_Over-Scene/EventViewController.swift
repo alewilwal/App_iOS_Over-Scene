@@ -16,7 +16,7 @@ class EventViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if let event = _event {
-            ui_eventLabel.text = event.name
+            ui_eventLabel.text = event.title
         }
     }
     override func viewDidLoad() {

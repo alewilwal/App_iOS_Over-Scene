@@ -7,14 +7,22 @@
 //
 
 import Foundation
+import Alamofire
+import ObjectMapper
+import AlamofireObjectMapper
 
-class Event {
-    var name:String
-    var note:Int
+class Event: Mappable {
     
-    init(name:String, note:Int) {
-        self.name = name
-        self.note = note
+    var title:String?
+    var content:String?
+    
+    required init?(map: Map) {
+        
     }
     
+    func mapping(map: Map) {
+        title <- map["title"]
+        content <- map["content"]
+    }
+
 }
