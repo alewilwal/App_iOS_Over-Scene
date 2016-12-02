@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class AgendaSonoreTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var ui_titleEventLabel: UILabel!
+    @IBOutlet weak var ui_imageEventImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +25,14 @@ class AgendaSonoreTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func display(event:Event) {
+    
+            ui_titleEventLabel.text = event.title
+            //print("***************** \(event.imageURL!)")
+            let fileUrl = Foundation.URL(string: event.imageURL!)
+            ui_imageEventImageView.af_setImage(withURL: fileUrl!, placeholderImage: UIImage(named:"visuel-logo-white"))
+            
+
+    }
+    
 }

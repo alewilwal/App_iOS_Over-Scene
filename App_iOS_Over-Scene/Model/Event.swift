@@ -15,6 +15,7 @@ class Event: Mappable {
     
     var title:String?
     var content:String?
+    var imageURL:String?
     
     required init?(map: Map) {
         
@@ -23,6 +24,7 @@ class Event: Mappable {
     func mapping(map: Map) {
         title <- map["title"]
         content <- map["content"]
+        imageURL <- map["featured_image.attachment_meta.sizes.medium.url"]
     }
 
 }

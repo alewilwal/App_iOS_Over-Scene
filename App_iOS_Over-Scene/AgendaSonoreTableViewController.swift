@@ -20,18 +20,16 @@ class AgendaSonoreTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let URL = "http://www.over-scene.com/wp-json/posts?type=tribe_events&filter[tribe_events_cat]=Musique"
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        let _tribeEventCat:String = "Musique"
+        
+        let URL = "http://www.over-scene.com/wp-json/posts?type=tribe_events&filter[tribe_events_cat]=\(_tribeEventCat)"
         
         Alamofire.request(URL).responseArray { (response: DataResponse<[Event]>) in
             self.eventsArray = response.result.value
-            /*
-            if let eventsArray = self.eventsArray {
-                for event in eventsArray {
-                    print(event.title!)
-                }
-            }
-            */
             self.tableView.reloadData()
+            //print(self.eventsArray[0].title)
         }
         
     }
@@ -51,22 +49,13 @@ class AgendaSonoreTableViewController: UITableViewController {
         else {
             return 0
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell:UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cell-event")
+        let cell:AgendaSonoreTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cell-event", for: indexPath) as! AgendaSonoreTableViewCell
         let event:Event = eventsArray[indexPath.row]
-        
-        if let label = cell.textLabel {
-            label.text = event.title
-        }
-        
-        if let detailLabel = cell.detailTextLabel {
-            detailLabel.text = "\(event.content!)"
-        }
-        
+        //cell.ui_titleEventLabel!.text = event.title
+        cell.display(event: event)
         return cell
     }
 
@@ -75,7 +64,6 @@ class AgendaSonoreTableViewController: UITableViewController {
             if let cell = sender as? UITableViewCell {
                 if let indexPath = self.tableView.indexPath(for: cell) {
                     let selectedEvent = eventsArray[indexPath.row]
-                    
                     let EventViewController:EventViewController = segue.destination as! EventViewController
                     EventViewController._event = selectedEvent
                 }

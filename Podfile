@@ -9,7 +9,10 @@ target 'App_iOS_Over-Scene' do
   pod 'Alamofire', '~> 4.0'
   pod 'ObjectMapper', '~> 2.2'
   pod 'AlamofireObjectMapper', '~> 4.0'
+  pod 'AlamofireImage', '~> 3.1'
+  
   pod 'SwiftyJSON'
+  
 
 
   target 'App_iOS_Over-SceneTests' do

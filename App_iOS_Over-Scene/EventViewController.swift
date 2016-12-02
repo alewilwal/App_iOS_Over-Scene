@@ -10,13 +10,18 @@ import UIKit
 
 class EventViewController: UIViewController {
 
-    
     @IBOutlet weak var ui_eventLabel: UILabel!
+    @IBOutlet weak var ui_eventDescriptionTextView: UITextView!
+    @IBOutlet weak var ui_eventImageView: UIImageView!
+    
     var _event:Event?
     
     override func viewWillAppear(_ animated: Bool) {
         if let event = _event {
             ui_eventLabel.text = event.title
+            ui_eventDescriptionTextView.text = event.content
+            let fileUrl = Foundation.URL(string: event.imageURL!)
+            ui_eventImageView.af_setImage(withURL: fileUrl!)
         }
     }
     override func viewDidLoad() {
